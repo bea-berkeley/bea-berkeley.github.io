@@ -35667,22 +35667,22 @@ and limitations under the License.
             loaded = true;
             // Predefine global immediately to benefit Webflow.env
 
-            window.WebflowEditor = true;
-            $win.off(hashchange, checkHash);
-            checkThirdPartyCookieSupport(function(thirdPartyCookiesSupported) {
-                $.ajax({
-                    url: cleanSlashes("https://editor-api.webflow.com" + '/api/editor/view'),
-                    data: {
-                        siteId: $html.attr('data-wf-site')
-                    },
-                    xhrFields: {
-                        withCredentials: true
-                    },
-                    dataType: 'json',
-                    crossDomain: true,
-                    success: success(thirdPartyCookiesSupported)
-                });
-            });
+            // window.WebflowEditor = true;
+            // $win.off(hashchange, checkHash);
+            // checkThirdPartyCookieSupport(function(thirdPartyCookiesSupported) {
+            //     $.ajax({
+            //         url: cleanSlashes("https://editor-api.webflow.com" + '/api/editor/view'),
+            //         data: {
+            //             siteId: $html.attr('data-wf-site')
+            //         },
+            //         xhrFields: {
+            //             withCredentials: true
+            //         },
+            //         dataType: 'json',
+            //         crossDomain: true,
+            //         success: success(thirdPartyCookiesSupported)
+            //     });
+            // });
         }
 
         function success(thirdPartyCookiesSupported) {
@@ -35725,29 +35725,29 @@ and limitations under the License.
         }
 
         function checkThirdPartyCookieSupport(callback) {
-            var iframe = window.document.createElement('iframe');
-            iframe.src = "https://webflow.com" + '/site/third-party-cookie-check.html';
-            iframe.style.display = 'none';
-            iframe.sandbox = 'allow-scripts allow-same-origin';
+            // var iframe = window.document.createElement('iframe');
+            // iframe.src = "https://webflow.com" + '/site/third-party-cookie-check.html';
+            // iframe.style.display = 'none';
+            // iframe.sandbox = 'allow-scripts allow-same-origin';
 
-            var handleMessage = function handleMessage(event) {
-                if (event.data === 'WF_third_party_cookies_unsupported') {
-                    cleanUpCookieCheckerIframe(iframe, handleMessage);
-                    callback(false);
-                } else if (event.data === 'WF_third_party_cookies_supported') {
-                    cleanUpCookieCheckerIframe(iframe, handleMessage);
-                    callback(true);
-                }
-            };
+            // var handleMessage = function handleMessage(event) {
+            //     if (event.data === 'WF_third_party_cookies_unsupported') {
+            //         cleanUpCookieCheckerIframe(iframe, handleMessage);
+            //         callback(false);
+            //     } else if (event.data === 'WF_third_party_cookies_supported') {
+            //         cleanUpCookieCheckerIframe(iframe, handleMessage);
+            //         callback(true);
+            //     }
+            // };
 
-            iframe.onerror = function() {
-                cleanUpCookieCheckerIframe(iframe, handleMessage);
-                callback(false);
-            }
-            ;
+            // iframe.onerror = function() {
+            //     cleanUpCookieCheckerIframe(iframe, handleMessage);
+            //     callback(false);
+            // }
+            // ;
 
-            window.addEventListener('message', handleMessage, false);
-            window.document.body.appendChild(iframe);
+            // window.addEventListener('message', handleMessage, false);
+            // window.document.body.appendChild(iframe);
         }
 
         function cleanUpCookieCheckerIframe(iframe, listener) {
@@ -75235,22 +75235,22 @@ and limitations under the License.
         ;
 
         function init() {
-            siteId = $('html').attr('data-wf-site');
-            formUrl = "https://webflow.com" + '/api/v1/form/' + siteId;
-            // Work around same-protocol IE XDR limitation - without this IE9 and below forms won't submit
+            // siteId = $('html').attr('data-wf-site');
+            // formUrl = "https://webflow.com" + '/api/v1/form/' + siteId;
+            // // Work around same-protocol IE XDR limitation - without this IE9 and below forms won't submit
 
-            if (retro && formUrl.indexOf("https://webflow.com") >= 0) {
-                formUrl = formUrl.replace("https://webflow.com", "http://formdata.webflow.com");
-            }
+            // if (retro && formUrl.indexOf("https://webflow.com") >= 0) {
+            //     formUrl = formUrl.replace("https://webflow.com", "http://formdata.webflow.com");
+            // }
 
-            signFileUrl = "".concat(formUrl, "/signFile");
-            $forms = $(namespace + ' form');
+            // signFileUrl = "".concat(formUrl, "/signFile");
+            // $forms = $(namespace + ' form');
 
-            if (!$forms.length) {
-                return;
-            }
+            // if (!$forms.length) {
+            //     return;
+            // }
 
-            $forms.each(build);
+            // $forms.each(build);
         }
 
         function build(i, el) {
@@ -77370,7 +77370,7 @@ and limitations under the License.
 
         api.ready = function() {
             designer = Webflow.env('design');
-            init();
+            //init();
         }
         ;
 
@@ -77384,13 +77384,13 @@ and limitations under the License.
 
         api.preview = function() {
             designer = false;
-            init();
+            //init();
         }
         ;
 
         api.redraw = function() {
             inRedraw = true;
-            init();
+            //init();
             inRedraw = false;
         }
         ;
@@ -77708,7 +77708,7 @@ and limitations under the License.
             var found = null;
 
             if (value === data.slides.length) {
-                init();
+                //init();
                 layout(data);
                 // Rebuild and find new slides
             }
@@ -88788,7 +88788,7 @@ Webflow.require('ix2').init({
     }
 });
 
-Webflow.require('commerce') && Webflow.require('commerce').init({
-    siteId: "6257d63bc996a895c7efa48a",
-    apiUrl: "https://render.webflow.com"
-});
+// Webflow.require('commerce') && Webflow.require('commerce').init({
+//     siteId: "6257d63bc996a895c7efa48a",
+//     apiUrl: "https://render.webflow.com"
+// });
