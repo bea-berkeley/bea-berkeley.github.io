@@ -6,3 +6,18 @@
 - possibly a bio modal for each member
 - load all animation in each section at once
 - make descriptions more appealing
+
+nick
+- slightly more detailed section between section 1 and 2
+- testimonies below calendar
+- about b/w team and contact
+
+access to info
+diversity - open to all
+networking
+food...and drinks
+
+homepage - what we Offer
+- 'get involved' for each kind
+about
+- more detailed way of getting involved
